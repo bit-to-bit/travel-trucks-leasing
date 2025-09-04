@@ -1,0 +1,41 @@
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../assets/img/hero.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.hero-text {
+    margin-left: 64px;
+    text-align: left;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--inputs-color);
+}
+
+.hero-text button {
+    margin-top: 40px;
+}
+
+.hero-text h1 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 67%;
+}
+
+.hero-text p {
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+}

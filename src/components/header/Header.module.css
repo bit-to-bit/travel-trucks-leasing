@@ -1,0 +1,27 @@
+.header {
+    background-color: var(--inputs-color);
+    height: 72px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    position: relative;
+    left: 100px;
+}
+
+.navigation ul {
+    display: flex;
+    direction: row;
+    gap: 32px;
+
+}
+
+.navigation ul li {
+    font-weight: 600;
+    font-size: 16px;
+}

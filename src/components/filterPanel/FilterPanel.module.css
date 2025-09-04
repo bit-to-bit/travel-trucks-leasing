@@ -1,0 +1,11 @@
+.filter {
+    width: 360px;
+}
+
+.filter h4 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--grey-color);
+    margin: 8px 0px;
+}
