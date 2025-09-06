@@ -1,0 +1,42 @@
+.details {
+    margin-top: 60px;
+}
+
+.navigation {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--grey-light-color);
+}
+
+.navigation li {
+    position: relative;
+}
+
+.navigation li::after {
+    content: '';
+    left: 0px;
+    width: 100%;
+    bottom: -27px;
+    height: 5px;
+    background-color: var(--button-light-color);
+    position: absolute;
+}
+
+.content {
+    display: flex;
+    margin-top: 44px;
+    gap: 40px;
+}
+
+.outlet {
+    min-width: 631px;
+    background-color: aquamarine
+}
+
+.booking {
+    min-width: 631px;
+    background-color: antiquewhite;
+    flex-grow: 1;
+    
+}

@@ -1,6 +1,7 @@
 import Sprite from '../../assets/img/sprite.svg';
 import { getCamperProperties, cropText } from '../../utils';
 import css from './CamperCard.module.css';
+import CamperLink from '../camperLink/CamperLink';
 const CamperCard = ({ camper }) => {
   const propertis = getCamperProperties(camper);
 
@@ -30,8 +31,7 @@ const CamperCard = ({ camper }) => {
               </li>
             ))}
         </ul>
-
-        <button>Show more</button>
+        <CamperLink camper={camper}/>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@
   --main-color: #101828;
   --text-color: #475467;
   --grey-color: #6C717B;
-  --button-light: #E44848;
+  --button-light-color: #E44848;
   --button-hover-color: #D84343;
   --rating-color: #FFC531;
   --grey-light-color: #DADDE1;
@@ -95,4 +95,8 @@ button:hover {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+section {
+  margin: 0px 64px;
 }

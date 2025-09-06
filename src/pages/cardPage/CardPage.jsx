@@ -1,25 +1,26 @@
-import FilterPanel from '../../components/filterPanel/FilterPanel';
-import css from './CatalogPage.module.css';
-import { fetchCampers } from '../../api/campers';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import CamperList from '../../components/camperList/CamperList';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import CamperInfo from "../../components/camperInfo/CamperInfo";
+import CamperDetails from "../../components/camperDetails/camperDetails";
+import { fetchCamper } from "../../api/campers";
+import css from "./CardPage.module.css";
 
 const CardPage = () => {
-  const { campers, isLoading, error } = useSelector(state => state.campers);
+  const { id: camperId } = useParams();
+  const { camper, isLoading, error } = useSelector((state) => state.campers);
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(fetchCampers());
-  }, [dispatch]);
+    dispatch(fetchCamper(camperId));
+  }, [dispatch, camperId]);
 
   return (
-    <div className={css.catalog}>
-      <FilterPanel />
+    <section>
       {isLoading && <p>Is Loading ...</p>}
       {error && <p>Is Error</p>}
-      <CamperList campers={campers} />
-    </div>
+      <CamperInfo camper={camper} />
+      <CamperDetails />
+    </section>
   );
 };
 
