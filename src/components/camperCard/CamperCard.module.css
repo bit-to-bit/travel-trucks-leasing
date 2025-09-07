@@ -40,6 +40,11 @@
 
 }
 
+.caption>div {
+    display: flex;
+    gap: 12px;
+}
+
 .info button {
     margin-top: 24px;
 }
@@ -81,4 +86,44 @@
     padding: 0px 18px;
     border-radius: 100px;
     mix-blend-mode: multiply;
+}
+
+button.favorite {
+    margin-top: 0px;
+    padding: 0px;
+    width: auto;
+    height: auto;
+    background: none;
+}
+
+button.favorite:hover {
+    background-color: none;
+}
+
+.favorite svg {
+    fill: var(--main-color);
+}
+
+.reviews {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.reviews div {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.reviews div:first-child span {
+    text-decoration: underline;
+}
+
+.star {
+    fill: var(--rating-color);
+}
+
+.map {
+    fill: var(--main-color);
 }

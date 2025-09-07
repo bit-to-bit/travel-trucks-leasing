@@ -39,3 +39,12 @@ export const filterVehicleEquipment = [
     ico: "automatic",
   },
 ];
+
+export const camperDetailsList = [
+  { name: "form", caption: "Form" },
+  { name: "length", caption: "Length" },
+  { name: "width", caption: "Width" },
+  { name: "height", caption: "Height" },
+  { name: "tank", caption: "Tank" },
+  { name: "consumption", caption: "Consumption" },
+];

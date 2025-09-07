@@ -13,7 +13,7 @@ const CardPage = () => {
   useEffect(() => {
     dispatch(fetchCamper(camperId));
   }, [dispatch, camperId]);
-
+  console.dir(camper);
   return (
     <section>
       {isLoading && <p>Is Loading ...</p>}

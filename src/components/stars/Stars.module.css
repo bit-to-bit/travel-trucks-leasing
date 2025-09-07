@@ -1,0 +1,20 @@
+.stars {
+    display: flex;
+    gap: 4px;
+}
+
+.stars li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.stars svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: var(--badges-color);
+}
+
+.stars svg.active {
+    fill: var(--rating-color);
+}

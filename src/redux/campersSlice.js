@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { fetchCampers, fetchCamper } from "../api/campers";
+import { camperDetailsList, filterVehicleEquipment } from "../constants";
 
 const campersSlice = createSlice({
   name: "campers",
@@ -46,6 +47,37 @@ const campersSlice = createSlice({
 });
 
 export const selectCamper = (state) => state.campers.camper;
+
+export const selectCamperDetails = createSelector([selectCamper], (camper) => {
+  if (camper !== null) {
+    const res = camperDetailsList.map((el) => ({
+      item: el.caption,
+      value: camper[el.name],
+    }));
+    return res;
+  }
+  return null;
+});
+
+export const selectCamperProperties = createSelector(
+  [selectCamper],
+  (camper) => {
+    if (camper !== null) {
+      const res = filterVehicleEquipment
+        .filter((el) => el.trueValue === camper[el.key])
+        .map((el) => ({
+          name: el.name,
+          ico: el.ico,
+        }));
+      return res;
+    }
+    return null;
+  }
+);
+
+export const selectCamperReviews = createSelector([selectCamper], (camper) => {
+  return camper ? camper.reviews : null;
+});
 
 export const campersReducer = campersSlice.reducer;
 export const { addFilter, removFilter, setLocation } = campersSlice.actions;

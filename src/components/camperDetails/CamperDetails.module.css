@@ -31,12 +31,11 @@
 
 .outlet {
     min-width: 631px;
-    background-color: aquamarine
 }
 
 .booking {
     min-width: 631px;
     background-color: antiquewhite;
     flex-grow: 1;
-    
+
 }

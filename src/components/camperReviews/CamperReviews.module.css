@@ -1,0 +1,39 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    margin-top: 10px;
+}
+
+.label {
+    display: flex;
+    height: 60px;
+    width: 60px;
+    background-color: var(--badges-color);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: var(--button-light-color);
+
+}
+
+.reviews li>div:first-child {
+    display: flex;
+}
+
+.reviews li>div:first-child {
+    display: flex;
+}
+
+.reviews li>div:first-child div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    margin-left: 16px;
+}
+
+.reviews li p {
+    display: block;
+    margin-top: 16px;
+}

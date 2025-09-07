@@ -23,12 +23,18 @@
   /* radius */
   --big-button-radius: 200px;
   --small-button-radius: 100px;
+
+  /*fonts*/
+  --main-font: 400 16px/150% "Inter", sans-serif;
+  --button-font: 500 16px/150% "Inter", sans-serif;
+  --small-caption-font: 600 20px/120% "Inter", sans-serif;
+  --middle-caption-font: 600 24px/133% "Inter", sans-serif;
+
 }
 
 /* #endregion variables */
 body {
-  font-family: "Inter", sans-serif;
-  line-height: 1.5;
+  font: var(--main-font);
   padding-bottom: 64px;
   color: var(--main-color);
 }
@@ -77,7 +83,7 @@ button {
   padding: 16px;
   width: 166px;
   height: 56px;
-  background-color: var(--button-light);
+  background-color: var(--button-light-color);
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;

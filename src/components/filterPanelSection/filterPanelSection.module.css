@@ -1,8 +1,13 @@
+.section {
+    margin-top: 32px;
+}
+
 .section h5 {
     display: inline-block;
     width: 100%;
     padding: 0px 0px 24px 0px;
     border-bottom: 1px solid var(--grey-light-color);
+    font: var(--small-caption-font);
 }
 
 .section ul {
@@ -18,6 +23,7 @@
 .section li {
     display: flex;
     flex-direction: column;
+    gap: 8px;
     align-items: center;
     justify-content: center;
     width: 112px;
@@ -28,6 +34,6 @@
 
 }
 
-.section li svg {
-    margin-bottom: 5px;
+.section li span {
+    text-align: center;
 }

@@ -1,21 +1,22 @@
-import { useDispatch, useSelector } from "react-redux";
-import { selectCamper } from "../../redux/campersSlice";
+import { useSelector } from "react-redux";
+import { selectCamperDetails } from "../../redux/campersSlice";
+import CamperProperties from "../camperProperties/CamperProperties";
 import css from "./CamperFeatures.module.css";
 const CamperFeatures = () => {
-  const camper = useSelector(selectCamper);
-  console.dir(camper);
+  const camperDetails = useSelector(selectCamperDetails);
   return (
     <div className={css.features}>
-      <div>CamperFeatures</div>
-      <div>{camper && camper.name}</div>
+      <CamperProperties />
       <h4>Vehicle details</h4>
-
-      <ul>
-        <li>
-          <p>Form</p>
-          <p>{camper && camper.form}</p>
-        </li>
-      </ul>
+      <dl className={css.details}>
+        {camperDetails &&
+          camperDetails.map((camperDetails, idx) => (
+            <div key={idx}>
+              <dt>{camperDetails.item}</dt>
+              <dd>{camperDetails.value}</dd>
+            </div>
+          ))}
+      </dl>
     </div>
   );
 };
