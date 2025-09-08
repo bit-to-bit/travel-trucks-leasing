@@ -104,6 +104,10 @@ button.favorite:hover {
     fill: var(--main-color);
 }
 
+.favorite svg.active {
+    fill: var(--button-light-color);
+}
+
 .reviews {
     display: flex;
     gap: 16px;

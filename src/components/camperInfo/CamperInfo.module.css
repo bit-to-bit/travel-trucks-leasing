@@ -1,0 +1,33 @@
+.info {
+    margin-top: 48px;
+}
+
+.price {
+    font: var(--middle-caption-font);
+    margin-top: 16px;
+
+}
+
+.reviews {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.reviews div {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.reviews div:first-child span {
+    text-decoration: underline;
+}
+
+.star {
+    fill: var(--rating-color);
+}
+
+.map {
+    fill: var(--main-color);
+}

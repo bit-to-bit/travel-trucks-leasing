@@ -1,4 +1,4 @@
-import { useLocation, Outlet, Link } from "react-router-dom";
+import { useLocation, Outlet, NavLink } from "react-router-dom";
 import css from "./CamperDetails.module.css";
 import BookingForm from "../bookingForm/BookingForm";
 
@@ -9,14 +9,22 @@ const CamperDetails = () => {
     <div className={css.details}>
       <ul className={css.navigation}>
         <li>
-          <Link to="features" state={location}>
+          <NavLink
+            to="features"
+            state={location}
+            className={({ isActive }) => (isActive ? css.active : null)}
+          >
             Features
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="reviews" state={location}>
+          <NavLink
+            to="reviews"
+            state={location}
+            className={({ isActive }) => (isActive ? css.active : null)}
+          >
             Reviews
-          </Link>
+          </NavLink>
         </li>
       </ul>
       <div className={css.content}>

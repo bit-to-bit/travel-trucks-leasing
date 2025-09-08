@@ -1,10 +1,15 @@
 import Sprite from "../../assets/img/sprite.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsFavorite, selectIsFavorite } from "../../redux/campersSlice";
 import { getCamperProperties, getReviewsSummary, cropText } from "../../utils";
 import css from "./CamperCard.module.css";
+import clsx from "clsx";
 import CamperLink from "../camperLink/CamperLink";
 const CamperCard = ({ camper }) => {
   const propertis = getCamperProperties(camper);
   const reviewSummary = getReviewsSummary(camper);
+  const isFavorite = useSelector(selectIsFavorite);
+  const dispatch = useDispatch();
 
   return (
     <div className={css.card}>
@@ -16,8 +21,15 @@ const CamperCard = ({ camper }) => {
           <h3>{camper.name}</h3>
           <div>
             <p>{`€${camper.price.toFixed(2)}`}</p>
-            <button className={css.favorite}>
-              <svg width="26" height="24">
+            <button
+              className={css.favorite}
+              onClick={() => dispatch(setIsFavorite(camper.id))}
+            >
+              <svg
+                width="26"
+                height="24"
+                className={clsx(isFavorite.includes(camper.id) && css.active)}
+              >
                 <use xlinkHref={`${Sprite}#heart`} />
               </svg>
             </button>
@@ -46,9 +58,9 @@ const CamperCard = ({ camper }) => {
               <li key={`${camper.id}@${idx}`}>
                 <span className={css.tag}>
                   <svg width="20" height="20">
-                    <use xlinkHref={`${Sprite}#icon-fuel-pump`} />
+                    <use xlinkHref={`${Sprite}#${el.ico}`} />
                   </svg>
-                  {el}
+                  {el.name}
                 </span>
               </li>
             ))}

@@ -1,12 +1,64 @@
-# React + Vite
+# Travel Trucks Leasing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Це застосунок для оренди кемперів, створений на основі React, Redux Toolkit, Vite.
 
-Currently, two official plugins are available:
+## Швидкий старт
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Клонування репозиторію
 
-## Expanding the ESLint configuration
+```sh
+git clone https://github.com/bit-to-bit/travel-trucks-leasing
+cd travel-trucks-leasing
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Встановлення залежностей
+
+```sh
+npm install
+```
+
+### 3. Запуск у режимі розробки
+
+```sh
+npm run dev
+```
+
+Застосунок буде доступний за адресою [http://localhost:5173](http://localhost:5173)
+
+### 4. Збірка для продакшену
+
+```sh
+npm run build
+```
+
+### 5. Перегляд зібраного застосунку
+
+```sh
+npm run preview
+```
+
+## Технології
+
+- [React](https://react.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Vite](https://vitejs.dev/)
+- [React Router](https://reactrouter.com/)
+- [Formik](https://formik.org/)
+- [Redux Persist](https://github.com/rt2zz/redux-persist)
+- [React Toastify](https://fkhadra.github.io/react-toastify/)
+- [React Spinners](https://www.davidhu.io/react-spinners/)
+
+## Структура проекту
+
+- `src/` — основний код застосунку
+- `src/pages/` — сторінки (Home, Catalog, Card)
+- `src/components/` — реюзабельні компоненти
+- `src/redux/` — Redux slices та store
+- `src/api/` — запити до API
+
+## Налаштування
+
+API використовується за замовчуванням:  
+`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers`
+
+## Ліцензія

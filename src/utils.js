@@ -1,9 +1,10 @@
 import { filterVehicleEquipment } from "./constants";
+import { setOnFilters } from "./redux/filtersSlice";
 
 export const getCamperProperties = (camper) => {
-  const res = filterVehicleEquipment
-    .filter((el) => el.trueValue === camper[el.key])
-    .map((el) => el.name);
+  const res = filterVehicleEquipment.filter(
+    (el) => el.trueValue === camper[el.key]
+  );
   return res;
 };
 
@@ -27,6 +28,16 @@ export const getReviewsSummary = (camper) => {
   const sumRatings = reviews.reduce((acc, el) => acc + el.reviewer_rating, 0);
 
   return `${(sumRatings / cntReviews).toFixed(1)} (${cntReviews} Reviews)`;
+};
+
+export const filterItemIsOn = (filterItem, onFilters) => {
+  const idx = onFilters.findIndex(
+    (el) =>
+      el["key"] === filterItem["key"] &&
+      el["trueValue"] === filterItem["trueValue"]
+  );
+
+  return idx === -1 ? false : true;
 };
 
 export const cropText = (text) => text.substr(0, 68) + "...";

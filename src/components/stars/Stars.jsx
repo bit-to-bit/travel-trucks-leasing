@@ -8,7 +8,7 @@ const Stars = ({ rating }) => {
       {[...Array(total_stars)].map((el, idx) => (
         <li key={idx}>
           <svg
-            className={idx < rating && clsx(css.active)}
+            className={clsx(idx < rating && css.active)}
             width="16"
             height="16"
           >

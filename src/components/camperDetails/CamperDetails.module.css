@@ -13,7 +13,7 @@
     position: relative;
 }
 
-.navigation li::after {
+.navigation li:has(a.active)::after {
     content: '';
     left: 0px;
     width: 100%;
@@ -35,7 +35,5 @@
 
 .booking {
     min-width: 631px;
-    background-color: antiquewhite;
     flex-grow: 1;
-
 }

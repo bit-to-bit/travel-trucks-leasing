@@ -4,17 +4,35 @@ const filtersSlice = createSlice({
   name: "filters",
   initialState: { onFilters: [], location: "" },
   reducers: {
-    addFilter: (state, { payload }) => {
-      state.onFilters.push(payload);
+    setOnFilters: (state, { payload }) => {
+      const idx = state.onFilters.findIndex(
+        (el) =>
+          el["key"] === payload["key"] &&
+          el["trueValue"] === payload["trueValue"]
+      );
+
+      if (idx === -1) {
+        state.onFilters.push(payload);
+        return;
+      }
+
+      state.onFilters = state.onFilters.filter(
+        (el) =>
+          !(
+            el["key"] === payload["key"] &&
+            el["trueValue"] === payload["trueValue"]
+          )
+      );
     },
-    removFilter: (state, { payload }) => {
-      state.onFilters = state.onFilters.filter((el) => el !== payload);
-    },
+
     setLocation: (state, { payload }) => {
       state.location = payload;
     },
   },
 });
 
+export const selectOnFilters = (state) => state.filters.onFilters;
+export const selectLocation = (state) => state.filters.location;
+
 export const filtersReducer = filtersSlice.reducer;
-export const { addFilter, removFilter, setLocation } = filtersSlice.actions;
+export const { setLocation, setOnFilters } = filtersSlice.actions;

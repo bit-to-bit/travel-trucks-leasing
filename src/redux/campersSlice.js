@@ -1,4 +1,5 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { selectOnFilters, selectLocation } from "./filtersSlice";
 import { fetchCampers, fetchCamper } from "../api/campers";
 import { camperDetailsList, filterVehicleEquipment } from "../constants";
 
@@ -9,10 +10,18 @@ const campersSlice = createSlice({
     camper: null,
     isLoading: false,
     error: null,
+    isFavorite: [],
   },
   reducers: {
     setCampers: (state, { payload }) => {
       state = payload;
+    },
+    setIsFavorite: (state, { payload }) => {
+      if (state.isFavorite.includes(payload)) {
+        state.isFavorite = state.isFavorite.filter((el) => el !== payload);
+        return;
+      }
+      state.isFavorite.push(payload);
     },
   },
   extraReducers: (builder) => {
@@ -46,7 +55,33 @@ const campersSlice = createSlice({
   },
 });
 
+export const selectCampers = (state) => state.campers.campers;
 export const selectCamper = (state) => state.campers.camper;
+export const selectIsLoading = (state) => state.campers.isLoading;
+export const selectIsFavorite = (state) => state.campers.isFavorite;
+
+const camperHasAllOnFiltres = (camper, onFilters) => {
+  const findedProperties = onFilters
+    .filter((el) => el.trueValue === camper[el.key])
+    .map((el) => el.name);
+  return findedProperties.length === onFilters.length;
+};
+
+export const selectFiltredCampers = createSelector(
+  [selectCampers, selectOnFilters, selectLocation],
+  (campers, onFilters, location) => {
+    let res = campers;
+    if (onFilters.length > 0) {
+      res = campers.filter((el) => camperHasAllOnFiltres(el, onFilters));
+    }
+    if (location) {
+      res = res.filter((el) =>
+        el.location.toLowerCase().includes(location.toLowerCase())
+      );
+    }
+    return res;
+  }
+);
 
 export const selectCamperDetails = createSelector([selectCamper], (camper) => {
   if (camper !== null) {
@@ -80,4 +115,4 @@ export const selectCamperReviews = createSelector([selectCamper], (camper) => {
 });
 
 export const campersReducer = campersSlice.reducer;
-export const { addFilter, removFilter, setLocation } = campersSlice.actions;
+export const { setIsFavorite, setCampers } = campersSlice.actions;

@@ -1,12 +1,19 @@
-import FilterPanel from '../../components/filterPanel/FilterPanel';
-import css from './CatalogPage.module.css';
-import { fetchCampers } from '../../api/campers';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import CamperList from '../../components/camperList/CamperList';
+import FilterPanel from "../../components/filterPanel/FilterPanel";
+import { ClipLoader } from "react-spinners";
+import css from "./CatalogPage.module.css";
+import { fetchCampers } from "../../api/campers";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import CamperList from "../../components/camperList/CamperList";
+import { selectIsLoading } from "../../redux/campersSlice";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+};
 
 const CatalogPage = () => {
-  const { campers, isLoading, error } = useSelector(state => state.campers);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,9 +23,15 @@ const CatalogPage = () => {
   return (
     <div className={css.catalog}>
       <FilterPanel />
-      {isLoading && <p>Is Loading ...</p>}
-      {error && <p>Is Error</p>}
-      <CamperList campers={campers} />
+      <ClipLoader
+        color="#E44848"
+        loading={isLoading}
+        cssOverride={override}
+        size={48}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      <CamperList />
     </div>
   );
 };

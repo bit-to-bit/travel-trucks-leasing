@@ -34,6 +34,11 @@
 
 }
 
+.section li.active {
+    border-color: var(--button-light-color);
+
+}
+
 .section li span {
     text-align: center;
 }
