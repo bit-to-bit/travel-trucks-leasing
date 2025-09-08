@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import CamperInfo from "../../components/camperInfo/CamperInfo";
 import CamperDetails from "../../components/camperDetails/CamperDetails";
 import { fetchCamper } from "../../api/campers";
-import css from "./CardPage.module.css";
 
 const CardPage = () => {
   const { id: camperId } = useParams();
