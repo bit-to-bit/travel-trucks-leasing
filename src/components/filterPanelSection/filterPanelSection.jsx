@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setOnFilters, selectOnFilters } from "../../redux/filtersSlice";
+import { setOnFilters, selectOnFilters } from "../../redux/filtersSlice.js";
 import css from "./FilterPanelSection.module.css";
 import clsx from "clsx";
 import Sprite from "../../assets/img/sprite.svg";
