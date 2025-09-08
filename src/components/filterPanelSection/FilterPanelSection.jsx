@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { useDispatch, useSelector } from "react-redux";
 import { setOnFilters, selectOnFilters } from "../../redux/filtersSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./FilterPanelSection.module.css";
 import Sprite from "../../assets/img/sprite.svg";
 import { filterItemIsOn } from "../../utils.js";
