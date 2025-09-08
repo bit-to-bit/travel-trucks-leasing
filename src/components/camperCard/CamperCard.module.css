@@ -1,5 +1,6 @@
 .card {
     display: flex;
+    position: relative;
     flex-direction: row;
     gap: 24px;
     border: 1px solid #dadde1;

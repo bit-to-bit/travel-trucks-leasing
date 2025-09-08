@@ -1,6 +1,6 @@
 import css from "./FilterPanel.module.css";
 import FilterLocation from "../filterLocation/FilterLocation";
-import FilterPanelSection from "../filterPanelSection/FilterPanelSection";
+import FilterPanelSection  from "../filterPanelSection/FilterPanelSection";
 import { filterVehicleEquipment, filterVehicleType } from "../../constants";
 
 const FilterPanel = () => {

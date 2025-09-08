@@ -16,4 +16,6 @@
     color: #fff;
     font-family: "Inter", sans-serif;
     border: none;
+    bottom: 24px;
+    position: absolute;
 }
